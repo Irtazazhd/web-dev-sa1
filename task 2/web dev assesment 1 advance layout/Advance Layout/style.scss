@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #231651, #4dccbd);
+    color: #ffffff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #231651;
+    border-bottom: 2px solid #4dccbd;
+
+    h1 {
+        font-size: 24px;
+        color: #eef36a;
+    }
+
+    nav {
+        display: flex;
+        gap: 20px;
+
+        a {
+            text-decoration: none;
+            color: #4dccbd;
+            font-size: 16px;
+        }
+    }
+
+    input[type="text"] {
+        padding: 8px;
+        font-size: 16px;
+        width: 200px;
+        border: 1px solid #4dccbd;
+        border-radius: 4px;
+        background-color: #ffffff;
+        color: #231651;
+    }
+}
+
+  // Tablet Responsiveness (720px - 1024px)
+  @media (max-width: 1024px) and (min-width: 720px) {
+    header{
+
+        padding: 15px;
+    }
+
+    h1 {
+      font-size: 20px; // Slightly smaller for tablets
+    }
+
+    nav {
+      gap: 15px;
+
+      a {
+        font-size: 14px; // Adjust navigation font size
+      }
+    }
+
+    input[type="text"] {
+      font-size: 14px;
+      width: 180px; // Slightly smaller search bar
+    }
+  }
+
+// Mobile Responsiveness (below 720px)
+@media (max-width: 720px) {
+    header {
+        flex-direction: row;
+        padding: 20px;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 18px;
+        text-align: center; /* Center-align the title */
+    }
+
+    nav {
+        a{
+            display: none;
+        }
+    }
+
+    input[type="text"] {
+        font-size: 14px;
+        width: 100%; /* Full-width input field */
+        margin-top: 10px; /* Add spacing */
+    }
+}
+
+
+
+// Main movie listing area
+.movie-list {
+    max-width: 1000px;
+    margin: 20px auto;
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; // Ensures space between items
+        justify-content: space-between; // Ensure even spacing between items
+    }
+
+    .movie-item {
+        background: linear-gradient(135deg, #231651, #4dccbd);
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: #ffffff;
+        max-width: 48%; // Default width for items
+        box-sizing: border-box; // Prevents overflow by including padding in width calculation
+
+        .movie-image {
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+        }
+
+        .movie-content {
+            margin-top: 10px;
+
+            h2 {
+                font-size: 1.5rem;
+                color: #eef36a;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 1.2rem;
+                color: #ffffff;
+                margin-bottom: 15px;
+            }
+
+            button {
+                padding: 10px 15px;
+                background: #eef36a;
+                color: #231651;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background: #d4c300;
+                }
+            }
+        }
+    }
+
+    // Tablet Responsiveness (720px - 1024px)
+    @media (max-width: 1024px) and (min-width: 720px) {
+        .row {
+            justify-content: space-between;
+        }
+
+        .movie-item {
+            max-width: 48%; // Two items per row
+        }
+    }
+
+    // Mobile Responsiveness (below 720px)
+    @media (max-width: 720px) {
+        .row {
+            flex-direction: column;
+        }
+
+        .movie-item {
+            max-width: 100%; // Full width on mobile
+        }
+    }
+
+    // Desktop screens larger than 1024px
+    @media (min-width: 1024px) {
+        .large-item {
+            max-width: calc(110% - 20px); // Adjust for gap
+        }
+        .large-item:first-child{
+            width: 150%;
+        }
+    }
+}
